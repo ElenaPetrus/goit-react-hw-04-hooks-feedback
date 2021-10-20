@@ -1,0 +1,33 @@
+.list {
+  width: 200px;
+  margin: 0 auto;
+  font-size: 18px;
+}
+
+.itemG,
+.itemN,
+.itemB,
+.itemT,
+.itemP {
+  margin-bottom: 5px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.definition {
+  font-size: 22px;
+  font-weight: bold;
+}
+.itemG {
+  color: rgb(21, 126, 52);
+}
+.itemN {
+  color: rgb(38, 46, 41);
+}
+.itemB {
+  color: rgb(192, 31, 31);
+}
+.itemT,
+.itemP {
+  color: rgb(19, 154, 226);
+}
