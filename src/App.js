@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 import { Section } from './components/Section/Section';
 import { FeedbackOptions } from './components/FeedbackOptions/FeedbackOptions';
@@ -16,21 +16,23 @@ export default function FeedBack() {
       case 'good':
         return setGood(good => good + 1);
 
-      case 'neutral':
-        return setNeutral(neutral => neutral + 1);
-
       case 'bad':
         return setBad(bad => bad + 1);
+
+      case 'neutral':
+        return setNeutral(neutral => neutral + 1);
 
       default:
         return;
     }
   };
 
-  const countTotalFeedback = good + neutral + bad;
-  const countPositiveFeedbackPercentage = Math.round(
-    (good / countTotalFeedback) * 100,
-  );
+  const countTotalFeedback = () => {
+    return good + neutral + bad;
+  };
+  const countPositiveFeedbackPercentage = () => {
+    return Math.round((good / countTotalFeedback()) * 100);
+  };
 
   return (
     <div className={s.container}>
@@ -40,7 +42,7 @@ export default function FeedBack() {
           onLeaveFeedback={LeaveFeedback}
         />
       </Section>
-      {countTotalFeedback === 0 ? (
+      {countTotalFeedback() === 0 ? (
         <Notification notifyMessage="No feedback given" />
       ) : (
         <Section title="Statistics">
@@ -48,8 +50,8 @@ export default function FeedBack() {
             good={good}
             neutral={neutral}
             bad={bad}
-            total={countTotalFeedback}
-            positiveInTotal={countPositiveFeedbackPercentage}
+            total={countTotalFeedback()}
+            positiveInTotal={countPositiveFeedbackPercentage()}
           />
         </Section>
       )}
