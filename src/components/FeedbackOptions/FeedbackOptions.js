@@ -7,7 +7,7 @@ import s from './FeedbackOptions.module.css';
 function FeedbackOptions({ options, onLeaveFeedback }) {
   return options.map(option => (
     <div className={s.btnConteiner} key={option}>
-      <button type="button" onClick={event => onLeaveFeedback(event)}>
+      <button type="button" onClick={() => onLeaveFeedback(option)}>
         {option}
       </button>
     </div>

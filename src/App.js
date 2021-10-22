@@ -11,8 +11,8 @@ export default function FeedBack() {
   const [bad, setBad] = useState(0);
   const [neutral, setNeutral] = useState(0);
 
-  const LeaveFeedback = option => {
-    switch (option) {
+  const LeaveFeedback = type => {
+    switch (type) {
       case 'good':
         return setGood(good => good + 1);
 
